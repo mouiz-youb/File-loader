@@ -1,0 +1,32 @@
+import express from "express";
+import mongoose from "mongoose";
+import multer from "multer";
+const app = express();
+const port = 3000;
+mongoose
+  .connect(
+    "mongodb+srv://ayoub:fY855MlvD9ytbymx@cluster0.vo86h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch(() => {
+    console.log("Error connecting to MongoDB");
+  });
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "files");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+app.post("/file", upload.single("file"), async (req, res) => {
+  console.log(req.file);
+});
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
