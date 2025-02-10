@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import multer from "multer";
+import cors from "cors";
 const app = express();
 const port = 3000;
 mongoose
@@ -13,6 +14,7 @@ mongoose
   .catch(() => {
     console.log("Error connecting to MongoDB");
   });
+app.use(cors());
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "files");
@@ -26,6 +28,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 app.post("/file", upload.single("file"), async (req, res) => {
   console.log(req.file);
+});
+app.get("/", (req, res) => {
+  res.send("Hello World");
 });
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

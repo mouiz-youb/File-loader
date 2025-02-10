@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-
+import { useFileLoader } from "../Hooks/UseFileLoader";
 function FileLoader() {
   const [Title, setTitle] = useState("");
   const [File, setFile] = useState("");
+  const { fileloading } = useFileLoader();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formDATA = {
       Title: Title,
       File: File,
     };
-    console.log(formDATA);
+    await fileloading(File);
   };
   return (
     <form
@@ -24,15 +25,17 @@ function FileLoader() {
         className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
       />
       <input
-        onChange={(e) => setFile(e.target.value)}
+        onChange={(e) => setFile(e.target.files[0])}
         type="file"
         accept="application/pdf"
         className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
       />
-      <input
+      <button
         type="submit"
         className="bg-black text-white text-xl pt-2 pb-2 pl-5 pr-5 rounded-2xl cursor-pointer"
-      />
+      >
+        Submit
+      </button>
     </form>
   );
 }
