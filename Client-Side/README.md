@@ -6,6 +6,7 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  <p>
   File Upload Storage Configuration with Multer
   This project uses Multer, a Node.js middleware for handling multipart/form-data, to manage file uploads. The following code configures the storage engine using Multer's diskStorage method.
 
@@ -80,3 +81,5 @@ Unique Filenames:
 Files are renamed by prefixing the current timestamp to the original file name. This minimizes the risk of overwriting files that share the same name.
 
 This configuration is part of the file upload functionality and ensures that files are saved reliably on the server with unique names, which is crucial for handling multiple uploads efficiently.
+
+  </p>
