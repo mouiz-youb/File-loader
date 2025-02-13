@@ -15,6 +15,9 @@ mongoose
     console.log("Error connecting to MongoDB");
   });
 app.use(cors());
+// ⁡⁣⁣⁢the next peace of code that contains to part⁡
+// ⁡⁣⁣⁢the first path the  destination of the file ⁡
+// ⁡⁣⁣⁢the next part the file name of the file ⁡
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "files");
@@ -27,10 +30,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 app.post("/file", upload.single("file"), async (req, res) => {
-  console.log(req.file); // Log the uploaded file details
-  res
-    .status(200)
-    .json({ message: "File uploaded successfully", file: req.file });
+  console.log(`hello from /file`);
 });
 app.get("/", (req, res) => {
   res.send("Hello World");
