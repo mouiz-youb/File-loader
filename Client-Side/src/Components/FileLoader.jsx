@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { useFileLoader } from "../Hooks/UseFileLoader";
+import axios from "axios";
 function FileLoader() {
-  const [Title, setTitle] = useState("");
-  const [File, setFile] = useState("");
-  const { fileloading } = useFileLoader();
+  const [title, setTitle] = useState("");
+  const [file, setFile] = useState("");
+  const { fileLoader, error, isloading } = useFileLoader();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("file", file);
+    await fileLoader(formData);
   };
   return (
     <form
