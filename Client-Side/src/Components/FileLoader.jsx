@@ -6,11 +6,11 @@ function FileLoader() {
   const { fileloading } = useFileLoader();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formDATA = {
-      Title: Title,
-      File: File,
-    };
-    await fileloading(File);
+    const formData = new FormData(); // Create a FormData object
+    formData.append("title", Title); // Append the title
+    formData.append("file", File); // Append the file
+
+    await fileloading(formData); // Pass the FormData object to the hook
   };
   return (
     <form
