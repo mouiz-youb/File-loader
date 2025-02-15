@@ -13,30 +13,80 @@ function FileLoader() {
     await fileLoader(formData);
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex justify-center items-center flex-col gap-5 m-5 border-2"
-    >
-      <p>File loader</p>
-      <input
-        onChange={(e) => setTitle(e.target.value)}
-        type="text"
-        placeholder="Tilte"
-        className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
-      />
-      <input
-        onChange={(e) => setFile(e.target.files[0])}
-        type="file"
-        accept="application/pdf"
-        className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
-      />
-      <button
-        type="submit"
-        className="bg-black text-white text-xl pt-2 pb-2 pl-5 pr-5 rounded-2xl cursor-pointer"
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="flex justify-center items-center flex-col gap-5 m-5 border-2"
       >
-        Submit
-      </button>
-    </form>
+        <p>File loader</p>
+        <input
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Tilte"
+          className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
+        />
+        <input
+          onChange={(e) => setFile(e.target.files[0])}
+          type="file"
+          accept="application/pdf"
+          className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
+        />
+        <button
+          type="submit"
+          className="bg-black text-white text-xl pt-2 pb-2 pl-5 pr-5 rounded-2xl cursor-pointer"
+        >
+          Submit
+        </button>
+      </form>
+      <form
+        onSubmit={handleSubmit}
+        className="flex justify-center items-center flex-col gap-5 m-5 border-2"
+      >
+        <p>File loader</p>
+        <input
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Tilte"
+          className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
+        />
+        <input
+          onChange={(e) => setFile(e.target.files[0])}
+          type="file"
+          accept="application/pdf"
+          className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
+        />
+        <button
+          type="submit"
+          className="bg-black text-white text-xl pt-2 pb-2 pl-5 pr-5 rounded-2xl cursor-pointer"
+        >
+          Submit
+        </button>
+      </form>
+      <form
+        onSubmit={handleSubmit}
+        className="flex justify-center items-center flex-col gap-5 m-5 border-2"
+      >
+        <p>File loader</p>
+        <input
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Tilte"
+          className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
+        />
+        <input
+          onChange={(e) => setFile(e.target.files[0])}
+          type="file"
+          accept="application/pdf"
+          className="shadow-2xl w-[50vw ] h-[50px] rounded-lg p-5"
+        />
+        <button
+          type="submit"
+          className="bg-black text-white text-xl pt-2 pb-2 pl-5 pr-5 rounded-2xl cursor-pointer"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
 

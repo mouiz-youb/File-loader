@@ -58,6 +58,27 @@ app.post("/file", upload.single("file"), async (req, res) => {
   // console.log(req.file);
   // res.json({ message: "File uploaded successfully" });
 });
+app.get("/get", upload.single("file"), async (req, res) => {
+  const AllFiles = await File.find({}).sort({ createAt: -1 });
+  try {
+    if (!AllFiles) {
+      return res.status(400).json({
+        message: "No files found",
+      });
+    }
+    if (AllFiles.length > 0) {
+      return res.status(200).json({
+        message: "Files listing is Successufuly",
+        AllFiles,
+      });
+    }
+  } catch (error) {
+    console.log(`Error Fetshing Files ${error.message}`);
+    res.status(500).json({
+      message: "Error Fetshing Files",
+    });
+  }
+});
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
