@@ -81,7 +81,15 @@ app.get("/get", async (req, res) => {
     });
   }
 });
-
+app.put("/updatefile/:id", async (req, res) => {
+  const { id } = req.params;
+  const updatefile = req.body;
+  try {
+    const file = await File.findByIdAndUpdate(id, updatefile, {
+      new: true,
+    });
+  } catch (error) {}
+});
 // app.get("/get", async (req, res) => {
 //   try {
 //     const allFiles = await File.find({}).sort({ createdAt: -1 });
